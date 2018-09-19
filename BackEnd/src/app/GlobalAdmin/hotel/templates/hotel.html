@@ -1,0 +1,56 @@
+
+<div>
+        <div style="margin-bottom:10px">
+            <button ng-click="hotelCtrl.AddHotel()" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button">{{'AddBtn' | translate}}</button>
+        </div>
+    
+        <div ng-if="hotelList.results.length == 0">
+            <span>{{'NoHotelAvailable' | translate}}</span>
+        </div>
+    
+        <div class="pmd-card pmd-z-depth pmd-card-custom-view" ng-if=" hotelList.results.length >0">
+                <!-- {{hotelList.results}} -->
+            <div class="table-responsive">
+                <table class="table pmd-table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{'Title' | translate}}</th>
+                            <th>{{'Description' | translate}}</th>
+                            <th>{{'Rate' | translate}}</th>
+                            <th>{{'Price' | translate}}</th>
+                            <th>{{'Currency' | translate}}</th>
+                            <th>{{'Template' | translate}}</th>
+                            <th>{{'IsMain' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="hotel in hotelList.results">
+                            <td  data-title="Name" width="20%">{{hotel.titleDictionary[selectedLanguage]}}</td>
+                            <td  data-title="Name" width="20%">{{hotel.descriptionDictionary[selectedLanguage]}}</td>
+                            <td  data-title="Name" width="20%">{{hotel.rate}}</td>
+                            <td  data-title="Name" width="20%">{{hotel.price}}</td>
+                            <td  data-title="Name" width="20%">{{(currencyList | filter : {currencyId:hotel.currencyTypeId})[0].titleDictionary[selectedLanguage]}}
+                            </td>
+                            <!-- <td  data-title="Name" width="20%">{{hotel.templateId}}</td> -->
+                       
+                               <td data-title="Image">
+                                   <img ng-src="{{(templateList | filter : {templateId:hotel.templateId})[0].templateURL}}" alt="{{(templateList | filter : {templateId:hotel.templateId})[0].templateName}}" style="max-height: 200px;max-width: 200px;"/>
+                                </td>
+                            
+                            <td  data-title="Name" width="20%" ng-if="hotel.isMain == true">{{'Yes' | translate}}</td>
+                            <td  data-title="Name" width="20%" ng-if="hotel.isMain == false || hotel.isMain == null">{{'No' | translate}}</td>
+                            <td ng-class="{'red-text': user.isActive == false }" width="15%">
+                                <i class="cursorPointer" ng-click="hotelCtrl.UpdateHotel(hotel)">{{'Edit' | translate}} </i>
+                                <i class="cursorPointer" ng-click="hotelCtrl.DeleteTemplate(hotel.hotelId)">{{'deleteBtn' | translate}} </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+        <div style="text-align:center;" paging page="1" page-size="10" total="hotelList.totalCount" paging-action="hotelCtrl.changePage(page)"
+             flex="nogrow" show-prev-next="true" show-first-last="true" hide-if-empty="true" disabled-class="hide">
+        </div>
+    </div>
+    

@@ -1,0 +1,10 @@
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\bin\Debug\MezabElRahma.Resources.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\bin\Debug\MezabElRahma.Resources.pdb
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\bin\Debug\ar-EG\MezabElRahma.Resources.resources.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Debug\MezabElRahma.Resources.Resource.resources
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Debug\MezabElRahma.Resources.Resource.ar-EG.resources
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Debug\MezabElRahma.Resources.csproj.GenerateResource.Cache
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Debug\ar-EG\MezabElRahma.Resources.resources.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Debug\MezabElRahma.Resources.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Debug\MezabElRahma.Resources.pdb
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Debug\MezabElRahma.Resources.csprojResolveAssemblyReference.cache

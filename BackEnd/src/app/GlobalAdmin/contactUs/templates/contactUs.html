@@ -1,0 +1,52 @@
+
+<div>
+        <div style="margin-bottom:10px">
+            <button ng-show="flag == undefined" ng-click="contactUsCtrl.AddContactUs()" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button">{{'AddBtn' | translate}}</button>
+        </div>
+    
+        <div ng-show="flag == undefined">
+            <span>{{'NoContactUsAvailable' | translate}}</span>
+        </div>
+    
+        <div class="pmd-card pmd-z-depth pmd-card-custom-view" ng-show="flag != undefined">
+    
+            <div class="table-responsive">
+                <table class="table pmd-table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{'Email' | translate}}</th>
+                            <th>{{'Number' | translate}}</th>
+                            <th>{{'WhatsAppNumberLbl' | translate}}</th>
+                            <th>{{'OwnerEmail' | translate}}</th>
+                            <!-- <th>{{'Location' | translate}}</th>
+                            <th>{{'ShowEmail' | translate}}</th>
+                            <th>{{'ShowMobile' | translate}}</th>
+                            <th>{{'ShowOwnerEmail' | translate}}</th>
+                            <th>{{'ShowWhatsApp' | translate}}</th>
+                            <th>{{'FacebookLink' | translate}}</th>
+                            <th>{{'GmailLink' | translate}}</th>
+                            <th>{{'TwitterLink' | translate}}</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td  data-title="Name" width="20%">{{contactUsObj.email}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.companyNumber}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.whatsAppNumber}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.ownerEmail}}</td>
+                        <!-- <td  data-title="Name" width="20%">{{contactUsObj.location}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.showEmail}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.showMobile}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.showOwnerEmail}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.showWhatsApp}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.facebookLink}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.gmailLink}}</td>
+                        <td  data-title="Name" width="20%">{{contactUsObj.twitterLink}}</td> -->
+                        <td ng-class="{'red-text': user.isActive == false }" width="15%">
+                            <i class="cursorPointer" ng-click="contactUsCtrl.UpdateContactUs(contactUsObj)">{{'Edit' | translate}} </i>
+                        </td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    

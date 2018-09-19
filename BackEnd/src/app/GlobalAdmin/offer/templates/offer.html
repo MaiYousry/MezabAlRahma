@@ -1,0 +1,56 @@
+
+<div>
+        <div style="margin-bottom:10px">
+            <button ng-click="offerCtrl.AddOffer()" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button">{{'AddBtn' | translate}}</button>
+        </div>
+    
+        <div ng-if="offerList.results.length == 0">
+            <span>{{'NoOfferAvailable' | translate}}</span>
+        </div>
+    
+        <div class="pmd-card pmd-z-depth pmd-card-custom-view" ng-if=" offerList.results.length >0">
+                <!-- {{offerList.results}} -->
+            <div class="table-responsive">
+                <table class="table pmd-table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{'Title' | translate}}</th>
+                            <th>{{'Description' | translate}}</th>
+                            <th>{{'Rate' | translate}}</th>
+                            <th>{{'Price' | translate}}</th>
+                            <th>{{'Currency' | translate}}</th>
+                            <th>{{'Template' | translate}}</th>
+                            <th>{{'IsMain' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="offer in offerList.results">
+                            <td  data-title="Name" width="20%">{{offer.titleDictionary[selectedLanguage]}}</td>
+                            <td  data-title="Name" width="20%">{{offer.descriptionDictionary[selectedLanguage]}}</td>
+                            <td  data-title="Name" width="20%">{{offer.rate}}</td>
+                            <td  data-title="Name" width="20%">{{offer.price}}</td>
+                            <td  data-title="Name" width="20%">{{(currencyList | filter : {currencyId:offer.currencyTypeId})[0].titleDictionary[selectedLanguage]}}
+                            </td>
+                            <!-- <td  data-title="Name" width="20%">{{offer.templateId}}</td> -->
+                       
+                               <td data-title="Image">
+                                   <img ng-src="{{(templateList | filter : {templateId:offer.templateId})[0].templateURL}}" alt="{{(templateList | filter : {templateId:offer.templateId})[0].templateName}}" style="max-height: 200px;max-width: 200px;"/>
+                                </td>
+                            
+                            <td  data-title="Name" width="20%" ng-if="offer.isMain == true">{{'Yes' | translate}}</td>
+                            <td  data-title="Name" width="20%" ng-if="offer.isMain == false || offer.isMain == null">{{'No' | translate}}</td>
+                            <td ng-class="{'red-text': user.isActive == false }" width="15%">
+                                <i class="cursorPointer" ng-click="offerCtrl.UpdateOffer(offer)">{{'Edit' | translate}} </i>
+                                <i class="cursorPointer" ng-click="offerCtrl.DeleteTemplate(offer.offerId)">{{'deleteBtn' | translate}} </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+        <div style="text-align:center;" paging page="1" page-size="10" total="offerList.totalCount" paging-action="offerCtrl.changePage(page)"
+             flex="nogrow" show-prev-next="true" show-first-last="true" hide-if-empty="true" disabled-class="hide">
+        </div>
+    </div>
+    

@@ -1,0 +1,124 @@
+<div class="modal-content">
+        <div class="modal-header bordered">
+            <button class="close" type="button" ng-click="addContactUsCtrl.close()">×</button>
+            <h2 class="pmd-card-title-text">{{'AddContactUsLbl' | translate}}</h2>
+        </div>
+    
+        <div class="modal-body">
+            <form class="form-horizontal" name="newContactUsForm">
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label>{{'Email' | translate}}</label>
+                    <input type="text" class="mat-input form-control" name="email" ng-model="Email" ng-pattern="/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/">
+                    <span class="error" ng-show="newContactUsForm.email.$error.pattern">{{'WrongMail' | translate}}   </span>
+                    <div ng-messages="newContactUsForm.email.$error" class="error">
+                        <div ng-if="newContactUsForm.email.$error.required && !newContactUsForm.email.$pristine">{{'EmailRequiredError' | translate}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label>{{'OwnerEmail' | translate}}</label>
+                    <input type="text" class="mat-input form-control" name="ownerEmail" ng-model="OwnerEmail" ng-pattern="/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/">
+                    <span class="error" ng-show="newContactUsForm.ownerEmail.$error.pattern">{{'WrongMail' | translate}}   </span>
+                    <div ng-messages="newContactUsForm.ownerEmail.$error" class="error">
+                        <div ng-if="newContactUsForm.ownerEmail.$error.required && !newContactUsForm.ownerEmail.$pristine">{{'EmailRequiredError' | translate}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label for="first-name">{{'MobileNumberLbl' | translate}}</label>
+                    <input type="text" class="mat-input form-control" name="mobileNumber" numbers-only ng-model="MobileNum" ng-minlength="10" ng-maxlength="50">
+                    <div ng-messages="newContactUsForm.mobileNumber.$error" class="error">
+                        <div ng-if="newContactUsForm.mobileNumber.$error.required && !newContactUsForm.mobileNumber.$pristine">{{'MobileNumberReqError' | translate}}</div>
+                        <div ng-if="(newContactUsForm.mobileNumber.$error.minlength || newContactUsForm.mobileNumber.$error.maxlength)">{{'MonileNumberLengthError' | translate}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label for="first-name">{{'WhatsAppNumberLbl' | translate}}</label>
+                    <input type="text" class="mat-input form-control" name="whatsappNumber" numbers-only ng-model="WhatsAppNum" ng-minlength="10" ng-maxlength="50">
+                    <div ng-messages="newContactUsForm.whatsappNumber.$error" class="error">
+                        <div ng-if="newContactUsForm.whatsappNumber.$error.required && !newContactUsForm.whatsappNumber.$pristine">{{'MobileNumberReqError' | translate}}</div>
+                        <div ng-if="(newContactUsForm.whatsappNumber.$error.minlength || newContactUsForm.whatsappNumber.$error.maxlength)">{{'MonileNumberLengthError' | translate}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label for="first-name">{{'Location' | translate}}</label>
+                    <input type="text" class="mat-input form-control" name="location" ng-model="Location">
+                    <!-- <div ng-messages="newContactUsForm.location.$error" class="error">
+                            <div ng-show="newContactUsForm.location.$error.pattern">{{'TextOnly' | translate}}</div>
+                            <div ng-if="newContactUsForm.location.$error.required && !newContactUsForm.location.$pristine">{{'requiredErr' | translate}}</div>
+                            <div ng-if="(newContactUsForm.location.$error.minlength || newContactUsForm.location.$error.maxlength) && !newContactUsForm.location.$error.required">{{'NameLengthError' | translate}}</div>
+                    </div> -->
+                </div>
+
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label for="first-name">{{'FacebookLink' | translate}}</label>
+                    <input ng-pattern="/^(http:\/\/|https:\/\/)?[_a-z0-9]+(\.[_a-z0-9]+)*[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,7})$/" type="text" class="mat-input form-control" name="facebookLink" ng-model="FacebookLink">
+                    <div ng-messages="newContactUsForm.facebookLink.$error" class="error">
+                        <div ng-show="newContactUsForm.facebookLink.$error.pattern">{{'LinkOnly' | translate}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label for="first-name">{{'GmailLink' | translate}}</label>
+                    <input ng-pattern="/^(http:\/\/|https:\/\/)?[_a-z0-9]+(\.[_a-z0-9]+)*[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,7})$/" type="text" class="mat-input form-control" name="gmailLink" ng-model="GmailLink">
+                    <div ng-messages="newContactUsForm.facebookLink.$error" class="error">
+                        <div ng-show="newContactUsForm.facebookLink.$error.pattern">{{'LinkOnly' | translate}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label for="first-name">{{'TwitterLink' | translate}}</label>
+                    <input ng-pattern="/^(http:\/\/|https:\/\/)?[_a-z0-9]+(\.[_a-z0-9]+)*[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,7})$/" type="text" class="mat-input form-control" name="twitterLink" ng-model="TwitterLink">
+                    <div ng-messages="newContactUsForm.facebookLink.$error" class="error">
+                        <div ng-show="newContactUsForm.facebookLink.$error.pattern">{{'LinkOnly' | translate}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label for="first-name">{{'Sections' | translate}}</label>
+                    <br/>
+                    <label>
+                        <input type="checkbox" ng-model="ShowEmail">
+                        {{'ShowEmail' | translate}}
+                    </label>
+                    <br/>
+                    <label>
+                        <input type="checkbox" ng-model="ShowMobile">
+                        {{'ShowMobile' | translate}}
+                    </label>
+                    <br/>
+                    <label>
+                        <input type="checkbox" ng-model="ShowOwnerEmail">
+                        {{'ShowOwnerEmail' | translate}}
+                    </label>
+                    <br/>
+                    <label>
+                        <input type="checkbox" ng-model="ShowWhatsApp">
+                        {{'ShowWhatsApp' | translate}}
+                    </label>
+                    <label>
+                        <input type="checkbox" ng-model="ShowFacebook">
+                        {{'ShowFacebook' | translate}}
+                    </label> <label>
+                        <input type="checkbox" ng-model="ShowGmail">
+                        {{'ShowGmail' | translate}}
+                    </label> <label>
+                        <input type="checkbox" ng-model="ShowTwitter">
+                        {{'ShowTwitter' | translate}}
+                    </label>
+                    <br/>
+                </div>
+
+
+            </form>
+    
+            <div class="pmd-modal-action text-right">
+                <button ng-disabled="newContactUsForm.$invalid" class="btn pmd-ripple-effect btn-primary" type="button" ng-click="AddNewContactUs()">{{'SaveAndExitBtn' | translate}}</button>
+            </div>
+    
+        </div>
+    </div>
+        
+        

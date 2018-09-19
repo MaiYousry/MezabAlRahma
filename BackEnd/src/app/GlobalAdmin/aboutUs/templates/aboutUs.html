@@ -1,0 +1,55 @@
+
+<div>
+    <div style="margin-bottom:10px">
+        <button ng-show="flag == 0" ng-click="aboutUsCtrl.AddAboutUs()" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button">{{'AddBtn' | translate}}</button>
+    </div>
+
+    <div ng-show="flag == 0">
+        <span>{{'NoAboutUsAvailable' | translate}}</span>
+    </div>
+
+    <div class="pmd-card pmd-z-depth pmd-card-custom-view" ng-if=" aboutUsList.results.length >0">
+            <!-- {{aboutUsList.results}} -->
+        <div class="table-responsive">
+            <table class="table pmd-table table-hover">
+                <thead>
+                    <tr>
+                        <!-- <th>{{'Header' | translate}}</th> -->
+                        <th>{{'Title' | translate}}</th>
+                        <th>{{'SubTitle' | translate}}</th>
+                        <th>{{'TitleColored' | translate}}</th>
+                        <th>{{'BoldArticle' | translate}}</th>
+                        <th>{{'Description' | translate}}</th>
+                        <th>{{'Template' | translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="aboutUs in aboutUsList.results">
+                        <!-- <td  data-title="Name" width="20%">{{aboutUs.headerDictionary[selectedLanguage]}}</td> -->
+                        <td  data-title="Name" width="20%">{{aboutUs.titleDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <td  data-title="Name" width="20%">{{aboutUs.subTitleDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <td  data-title="Name" width="20%">{{aboutUs.titleColoredDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <td  data-title="Name" width="20%">{{aboutUs.boldArticleDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <td  data-title="Name" width="20%">{{aboutUs.descriptionDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <td  data-title="Name" width="20%">{{(currencyList | filter : {currencyId:aboutUs.currencyTypeId})[0].titleDictionary[selectedLanguage] | limitTo: 10 }}
+                        </td>
+                        <!-- <td  data-title="Name" width="20%">{{aboutUs.templateId}}</td> -->
+                   
+                           <td data-title="Image">
+                               <img ng-src="{{(templateList | filter : {templateId:aboutUs.templateId})[0].templateURL}}" alt="{{(templateList | filter : {templateId:aboutUs.templateId})[0].templateName}}" style="max-height: 200px;max-width: 200px;"/>
+                            </td>
+                        
+                        <td ng-class="{'red-text': user.isActive == false }" width="15%">
+                            <i class="cursorPointer" ng-click="aboutUsCtrl.UpdateAboutUs(aboutUs)">{{'Edit' | translate}} </i>
+                            <!-- <i class="cursorPointer" ng-click="aboutUsCtrl.DeleteTemplate(aboutUs.aboutUsId)">{{'deleteBtn' | translate}} </i> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div style="text-align:center;" paging page="1" page-size="10" total="aboutUsList.totalCount" paging-action="aboutUsCtrl.changePage(page)"
+         flex="nogrow" show-prev-next="true" show-first-last="true" hide-if-empty="true" disabled-class="hide">
+    </div>
+</div>

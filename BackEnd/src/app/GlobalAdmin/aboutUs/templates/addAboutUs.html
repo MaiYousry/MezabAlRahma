@@ -1,0 +1,129 @@
+<style>
+    .constrained {
+    margin: 10px;
+    padding: 10px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid lightgray;
+    background-color: white
+}
+
+</style>
+
+<div class="modal-content">
+    <div class="modal-header bordered">
+        <button class="close" type="button" ng-click="addAboutUsCtrl.close()">×</button>
+        <h2 class="pmd-card-title-text">{{'AddAboutUsLbl' | translate}}</h2>
+    </div>
+
+    <div class="modal-body">
+            
+        <form class="form-horizontal" name="newAboutUsForm">
+            <div> 
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" ng-class="{'active':$index == 0}" ng-repeat="lang in language">
+                        <a href="javascript:void(0);" data-target="#{{lang.value}}-form" aria-controls="home" role="tab" data-toggle="tab">
+                            {{lang.value | translate}}
+                        </a>
+                    </li> 
+                </ul>
+                <div class="pmd-card">
+                    <div class="pmd-card-body">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tablist" class="tab-pane" ng-class="{'active':$index == 0}" ng-repeat="lang in language" id="{{lang.value}}-form">
+                                <!-- <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                    <label for="first-name">{{'Header' | translate}}</label>
+                                    <input required type="text" class="mat-input form-control" name="headerDictionary{{lang.value+'Header'}}" ng-pattern="/^(\D)+$/" ng-model="addAboutUsCtrl.HeaderDictionary[lang.key]" ng-minlength="2" ng-maxlength="80">
+                                    <div ng-messages="newAboutUsForm.headerDictionary{{lang.value+'Header'}}.$error" class="error">
+                                            <div ng-show="newAboutUsForm.headerDictionary{{lang.value+'Header'}}.$error.pattern">{{'TextOnly' | translate}}</div>
+                                            <div ng-show="newAboutUsForm.headerDictionary{{lang.value+'Header'}}.$error.required && !newAboutUsForm.headerDictionary{{lang.value+'Header'}}.$pristine">{{'requiredErr' | translate}}</div>
+                                            <div ng-show="newAboutUsForm.headerDictionary{{lang.value+'Header'}}.$error.minlength || newAboutUsForm.headerDictionary{{lang.value+'Header'}}.$error.maxlength">{{'NameLengthError80' | translate}}</div>
+                                    </div>
+                                </div> -->
+                                
+                                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                    <label for="first-name"> {{ 'Title' | translate}} </label>
+                                    <input required type="text" class="mat-input form-control" name="titleDictionary{{lang.value+'Title'}}" ng-model="addAboutUsCtrl.TitleDictionary[lang.key]" ng-minlength="2" ng-maxlength="80">
+                                    <div ng-messages="newAboutUsForm.titleDictionary{{lang.value+'Title'}}.$error" class="error">
+                                            <!-- <div ng-show="newAboutUsForm.titleDictionary{{lang.value+'Title'}}.$error.pattern">{{'TextOnly' | translate}}</div> -->
+                                            <div ng-show="newAboutUsForm.titleDictionary{{lang.value+'Title'}}.$error.required && !newAboutUsForm.titleDictionary{{lang.value+'Title'}}.$pristine">{{'requiredErr' | translate}}</div> 
+                                            <div ng-show="newAboutUsForm.titleDictionary{{lang.value+'Title'}}.$error.minlength || newAboutUsForm.titleDictionary{{lang.value+'Title'}}.$error.maxlength">{{'NameLengthError80' | translate}}</div>
+                                    </div>
+                                </div> 
+
+                                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                    <label for="first-name">{{'SubTitle' | translate}}</label>
+                                    <input required type="text" class="mat-input form-control" name="subTitleDictionary{{lang.value+'SubTitle'}}" ng-model="addAboutUsCtrl.SubTitleDictionary[lang.key]" ng-minlength="2" ng-maxlength="16">
+                                    <div ng-messages="newAboutUsForm.subTitleDictionary{{lang.value+'SubTitle'}}.$error" class="error">
+                                            <!-- <div ng-show="newAboutUsForm.subTitleDictionary{{lang.value+'SubTitle'}}.$error.pattern">{{'TextOnly' | translate}}</div> -->
+                                            <div ng-show="newAboutUsForm.subTitleDictionary{{lang.value+'SubTitle'}}.$error.required && !newAboutUsForm.subTitleDictionary{{lang.value+'SubTitle'}}.$pristine">{{'requiredErr' | translate}}</div>
+                                            <div ng-show="newAboutUsForm.subTitleDictionary{{lang.value+'SubTitle'}}.$error.minlength || newAboutUsForm.subTitleDictionary{{lang.value+'SubTitle'}}.$error.maxlength">{{'NameLengthError16' | translate}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                    <label for="first-name">{{'TitleColored' | translate}}</label>
+                                    <input required type="text" class="mat-input form-control" name="titleColoredDictionary{{lang.value+'TitleColored'}}" ng-model="addAboutUsCtrl.TitleColoredDictionary[lang.key]" ng-minlength="2" ng-maxlength="16">
+                                    <div ng-messages="newAboutUsForm.titleColoredDictionary{{lang.value+'TitleColored'}}.$error" class="error">
+                                            <!-- <div ng-show="newAboutUsForm.titleColoredDictionary{{lang.value+'TitleColored'}}.$error.pattern">{{'TextOnly' | translate}}</div> -->
+                                            <div ng-show="newAboutUsForm.titleColoredDictionary{{lang.value+'TitleColored'}}.$error.required && !newAboutUsForm.titleColoredDictionary{{lang.value+'TitleColored'}}.$pristine">{{'requiredErr' | translate}}</div>
+                                            <div ng-show="newAboutUsForm.titleColoredDictionary{{lang.value+'TitleColored'}}.$error.minlength || newAboutUsForm.titleColoredDictionary{{lang.value+'TitleColored'}}.$error.maxlength">{{'NameLengthError16' | translate}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                    <label for="first-name">{{'BoldArticle' | translate}}</label>
+                                    <input required type="text" class="mat-input form-control" name="boldArticleDictionary{{lang.value+'BoldArticle'}}" ng-pattern="/^(\D)+$/" ng-model="addAboutUsCtrl.BoldArticleDictionary[lang.key]" ng-minlength="2" ng-maxlength="120">
+                                    <div ng-messages="newAboutUsForm.boldArticleDictionary{{lang.value+'BoldArticle'}}.$error" class="error">
+                                            <!-- <div ng-show="newAboutUsForm.boldArticleDictionary{{lang.value+'BoldArticle'}}.$error.pattern">{{'TextOnly' | translate}}</div> -->
+                                            <div ng-show="newAboutUsForm.boldArticleDictionary{{lang.value+'BoldArticle'}}.$error.required && !newAboutUsForm.boldArticleDictionary{{lang.value+'BoldArticle'}}.$pristine">{{'requiredErr' | translate}}</div>
+                                            <div ng-show="newAboutUsForm.boldArticleDictionary{{lang.value+'BoldArticle'}}.$error.minlength || newAboutUsForm.boldArticleDictionary{{lang.value+'BoldArticle'}}.$error.maxlength">{{'NameLengthError120' | translate}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                    <label for="first-name">{{'Description' | translate}}</label>
+                                    <textarea required type="text" class="mat-input form-control" name="discriptionDictionary{{lang.value+'Discription'}}" ng-model="addAboutUsCtrl.DescriptionDictionary[lang.key]" ng-minlength="2" ng-maxlength="700">
+                                    </textarea>
+                                    <div ng-messages="newAboutUsForm.discriptionDictionary{{lang.value+'Discription'}}.$error" class="error">
+                                        <!-- <div ng-show="newAboutUsForm.discriptionDictionary{{lang.value+'Discription'}}.$error.pattern">{{'TextOnly' | translate}}</div> -->
+                                        <div ng-show="newAboutUsForm.discriptionDictionary{{lang.value+'Discription'}}.$error.required && !newAboutUsForm.discriptionDictionary{{lang.value+'Discription'}}.$pristine">{{'requiredErr' | translate}}</div>
+                                        <div ng-show="newAboutUsForm.discriptionDictionary{{lang.value+'Discription'}}.$error.minlength || newAboutUsForm.discriptionDictionary{{lang.value+'Discription'}}.$error.maxlength">{{'NameLengthError700' | translate}}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <hr>
+
+            <label for="first-name">{{'Template' | translate}}</label>
+            <div class="constrained">
+                <div ng-repeat="template in templateList.results">
+                    <label>
+                        <input type="radio" ng-model="template.templateId" ng-change="changeId(template.templateId)"  value="{{template.templateId}}" name="template"/>
+                        <img ng-src="{{template.templateURL}}" style="height: 200px;width: 150px;"/>
+                    </label>
+                </div>
+                <div style="text-align:center;" paging page="1" page-size="10" total="templateList.totalCount" paging-action="addAboutUsCtrl.changePage(page)"
+                    flex="nogrow" show-prev-next="true" show-first-last="true" hide-if-empty="true" disabled-class="hide">
+                </div>
+            </div>
+            
+        </form>
+
+       
+        
+
+        <div class="pmd-modal-action text-right">
+            <button ng-disabled="newAboutUsForm.$invalid" class="btn pmd-ripple-effect btn-primary" type="button" ng-click="AddNewAboutUs()">{{'SaveAndExitBtn' | translate}}</button>
+            <!-- <button ng-disabled="newAboutUsForm.$invalid" class="btn pmd-ripple-effect btn-primary" type="button" ng-click="AddNewContactMore()">{{'AddMoreBtn' | translate}}</button> -->
+        </div>
+
+    </div>
+</div>
+

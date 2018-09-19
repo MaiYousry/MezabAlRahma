@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Mezab Al-Rahma</title>
+	<!-- META TAGS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- FAV ICON(BROWSER TAB ICON) -->
+	<link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
+	<!-- GOOGLE FONT -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:500,700" rel="stylesheet">
+	<!-- FONTAWESOME ICONS -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- ALL CSS FILES -->
+	<link href="css/materialize.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
+	<link href="css/responsive.css" rel="stylesheet">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body data-ng-app="">
+	<!--HEADER SECTION-->
+	<section>
+		<!--TOP BANNER-->
+		<div class="inn-banner" style="background: url(http://mezab-al-rahma.azurewebsites.net/api/Templates/{{home.templateId}}/Image) no-repeat">		
+			<div class="container">
+				<div class="row">
+					<h4>{{'Leadership'| translate}}</h4>
+					<!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. -->
+						<p>
+							<ul>
+								<li><a href="#">{{'Home'| translate}}</a>
+								</li>
+								<li><a href="#">{{'Leadership'| translate}}</a>
+								</li>
+							</ul>
+				</div>
+			</div>
+		</div>
+		<!--TOP SECTION-->
+		<div class="inn-body-section pad-bot-55">
+			<div class="container">
+				<div class="row">
+					<div class="page-head">
+						<h2>{{'Leadership'| translate}}</h2>
+						<div class="head-title">
+							<div class="hl-1"></div>
+							<div class="hl-2"></div>
+							<div class="hl-3"></div>
+						</div>
+						<!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p> -->
+					</div>
+					<!--TYPOGRAPHY SECTION-->
+					<div class="col-md-8 rtlCLass">
+						<div class="head-typo typo-com">
+							<h2>{{'LeadershipTeam' | translate}}</h2>
+							<!-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p> -->
+							<!--EVENT-->
+							<div class="aminities">
+								<ul>
+									<div ng-repeat="member in leadership">
+											<li class="aminities-line"> <i class="fa fa-map-marker" aria-hidden="true"></i>
+												<div class="row amini-body">
+													<div class="col-md-4"> <img ng-src="http://mezab-al-rahma.azurewebsites.net/api/Templates/{{member.templateId}}/Image" alt="" /> </div>
+													<!-- <div class="col-md-4"> <img ng-src="localhost:9091/img/ami/{{member.templateId}}.jpg" alt="" /> </div> -->
+													<div class="col-md-8">
+														<h4>{{member.titleDictionary[selectedLanguage]}}</h4>
+														<p>{{member.descriptionDictionary[selectedLanguage]}}</p>
+													</div>
+												</div>
+											</li>
+									</div>
+									
+								</ul>
+							</div>
+							<!--END EVENT-->
+						</div>
+					</div>
+					<div class="col-md-4">
+						<!-- <div class="head-typo typo-com">
+							<h2>One Column</h2>
+							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
+						</div> -->
+					</div>
+					<!--END TYPOGRAPHY SECTION-->
+				</div>
+			</div>
+		</div>
+		<!--TOP SECTION-->
+
+	</section>

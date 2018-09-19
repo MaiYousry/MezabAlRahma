@@ -1,0 +1,93 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+        $(".select-with-search").select2({
+			theme: "bootstrap"
+		});
+	});
+</script>
+
+<div class="modal-body">
+    <h2 class="pmd-card-title-text">{{'user' | translate}}</h2>
+    <br>
+    <form class="form-horizontal" name="newUserForm">
+        <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+            <label for="first-name">{{'SelectUser' | translate}}</label>
+            <select style="width:100% !important" class="form-control select-with-search pmd-select2" 
+            ng-model="searchUserCtrl.selectedUser"
+            ng-options="user as user.userFirstName for user in searchUserCtrl.userList">
+            </select>
+         </div>
+
+    </form>
+    <!-- <p>{{searchUserCtrl.selectedUser}}</p> -->
+    
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'CodeLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userCode">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'FirstNameLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userFirstName">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'SecondNameLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userSecondName">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'FamilyNameLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userFamilyName">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'NationalityLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userNationality">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'JobLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userJob">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'CountryLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userCountry">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'CityLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userCity">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'MobileNumberLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userMobile">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'EmailLbl' | translate}}</label>
+        <input disabled type="text" class="mat-input form-control pmd-textfield-floating-label" ng-model="searchUserCtrl.selectedUser.userEmail">
+        
+    </div>
+
+    <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+        <label for="first-name">{{'GenderLbl' | translate}}</label>
+        <br>
+        <div class="mat-input form-control pmd-textfield-floating-label" ng-if="searchUserCtrl.selectedUser.userGender == 1">{{'MaleLbl' | translate}}</div>
+        <div class="mat-input form-control pmd-textfield-floating-label" ng-if="searchUserCtrl.selectedUser.userGender == 0">{{'FemaleLbl' | translate}}</div>
+        
+
+    </div>
+
+    </div>

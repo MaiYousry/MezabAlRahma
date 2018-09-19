@@ -1,0 +1,97 @@
+<style>
+    .constrained {
+    margin: 10px;
+    padding: 10px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid lightgray;
+    background-color: white
+}
+
+</style>
+    
+    <div class="modal-content">
+        <div class="modal-header bordered">
+            <button class="close" type="button" ng-click="addOurTeamCtrl.close()">×</button>
+            <h2 class="pmd-card-title-text">{{'AddOurTeamLbl' | translate}}</h2>
+        </div>
+    
+        <div class="modal-body">
+                
+            <form class="form-horizontal" name="newOurTeamForm">
+                <div> 
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" ng-class="{'active':$index == 0}" ng-repeat="lang in language">
+                            <a href="javascript:void(0);" data-target="#{{lang.value}}-form" aria-controls="OurTeam" role="tab" data-toggle="tab">
+                                {{lang.value | translate}}
+                            </a>
+                        </li> 
+                    </ul>
+                    <div class="pmd-card">
+                        <div class="pmd-card-body">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tablist" class="tab-pane" ng-class="{'active':$index == 0}" ng-repeat="lang in language" id="{{lang.value}}-form">
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                        <label for="first-name"> {{ 'Title' | translate}} </label>
+                                        <!-- <label for="first-name">{{'Title' | translate}}</label> -->
+                                        <input required type="text" class="mat-input form-control" name="titleDictionary{{lang.value+'Title'}}" ng-pattern="/^(\D)+$/" ng-model="addOurTeamCtrl.TitleDictionary[lang.key]" ng-minlength="2" ng-maxlength="50">
+                                        <div ng-messages="newOurTeamForm.titleDictionary{{lang.value+'Title'}}.$error" class="error">
+                                                <div ng-show="newOurTeamForm.titleDictionary{{lang.value+'Title'}}.$error.pattern">{{'TextOnly' | translate}}</div>
+                                                <div ng-show="newOurTeamForm.titleDictionary{{lang.value+'Title'}}.$error.required && !newOurTeamForm.titleDictionary{{lang.value+'Title'}}.$pristine">{{'requiredErr' | translate}}</div>
+                                                <div ng-show="newOurTeamForm.titleDictionary{{lang.value+'Title'}}.$error.minlength || newOurTeamForm.titleDictionary{{lang.value+'Title'}}.$error.maxlength">{{'NameLengthError50' | translate}}</div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                        <label for="first-name">{{'Description' | translate}}</label>
+                                        <textarea required type="text" class="mat-input form-control" name="discriptionDictionary{{lang.value+'Discription'}}" ng-model="addOurTeamCtrl.DescriptionDictionary[lang.key]" ng-minlength="2" ng-maxlength="400">
+                                        </textarea>
+                                        <div ng-messages="newOurTeamForm.discriptionDictionary{{lang.value+'Discription'}}.$error" class="error">
+                                            <!-- <div ng-show="newOurTeamForm.discriptionDictionary{{lang.value+'Discription'}}.$error.pattern">{{'TextOnly' | translate}}</div> -->
+                                            <div ng-show="newOurTeamForm.discriptionDictionary{{lang.value+'Discription'}}.$error.required && !newOurTeamForm.discriptionDictionary{{lang.value+'Discription'}}.$pristine">{{'requiredErr' | translate}}</div>
+                                            <div ng-show="newOurTeamForm.discriptionDictionary{{lang.value+'Discription'}}.$error.minlength || newOurTeamForm.discriptionDictionary{{lang.value+'Discription'}}.$error.maxlength">{{'NameLengthError400' | translate}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+    
+                <hr>
+
+                <!-- <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label for="first-name">{{'IsMain' | translate}}</label>
+                    <select class="form-control" ng-model="IsMain" style="width: 50%">
+                            <option value="1">{{'Yes' | translate}}</option>
+                            <option value="0">{{'No' | translate}}</option>
+                    </select>
+                </div> -->
+    
+                <label for="first-name">{{'Template' | translate}}</label>
+                <div class="constrained">
+                    <div ng-init="firstTempId = templateList.results[0].templateId" ng-repeat="template in templateList.results">
+                        <label>
+                            <input ng-checked="template.templateId == firstTempId" type="radio" ng-model="template.templateId" ng-change="changeId(template.templateId)"  value="{{template.templateId}}" name="template"/>
+                            <img ng-src="{{template.templateURL}}" style="height: 200px;width: 150px;"/>
+                            
+                        </label>
+                    </div>
+                    <div style="text-align:center;" paging page="1" page-size="10" total="templateList.totalCount" paging-action="addOurTeamCtrl.changePage(page)"
+                        flex="nogrow" show-prev-next="true" show-first-last="true" hide-if-empty="true" disabled-class="hide">
+                    </div>
+                </div>
+                
+            </form>
+    
+           
+            
+    
+            <div class="pmd-modal-action text-right">
+                <button ng-disabled="newOurTeamForm.$invalid" class="btn pmd-ripple-effect btn-primary" type="button" ng-click="AddNewOurTeam()">{{'SaveAndExitBtn' | translate}}</button>
+                <!-- <button ng-disabled="newOurTeamForm.$invalid" class="btn pmd-ripple-effect btn-primary" type="button" ng-click="AddNewContactMore()">{{'AddMoreBtn' | translate}}</button> -->
+            </div>
+    
+        </div>
+    </div>    

@@ -1,0 +1,59 @@
+
+<div>
+    <div style="margin-bottom:10px">
+        <button ng-show="flag == 0" ng-click="homeCtrl.AddHome()" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button">{{'AddBtn' | translate}}</button>
+    </div>
+
+    <div ng-show="flag == 0">
+        <span>{{'NoHomeAvailable' | translate}}</span>
+    </div>
+
+    <div class="pmd-card pmd-z-depth pmd-card-custom-view" ng-show="flag != 0">
+            <!-- {{homeList.results}} -->
+        <div class="table-responsive">
+            <table class="table pmd-table table-hover">
+                <thead>
+                    <tr>
+                        <th>{{'TitleColored' | translate}}</th>
+                        <th>{{'Title' | translate}}</th>
+                        <th>{{'SubTitle' | translate}}</th>
+                        <th>{{'Description' | translate}}</th>
+                        <!-- <th>{{'Rate' | translate}}</th>
+                        <th>{{'Price' | translate}}</th>
+                        <th>{{'Currency' | translate}}</th> -->
+                        <th>{{'Template' | translate}}</th>
+                        <!-- <th>{{'IsMain' | translate}}</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="home in homeList.results">
+                        <td  data-title="Name" width="20%">{{home.titleDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <td  data-title="Name" width="20%">{{home.subTitleDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <td  data-title="Name" width="20%">{{home.coloredTitleDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <td  data-title="Name" width="20%">{{home.descriptionDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                        <!-- <td  data-title="Name" width="20%">{{home.rate}}</td>
+                        <td  data-title="Name" width="20%">{{home.price}}</td>
+                        <td  data-title="Name" width="20%">{{(currencyList | filter : {currencyId:home.currencyTypeId})[0].titleDictionary[selectedLanguage]}}
+                        </td> -->
+                        <!-- <td  data-title="Name" width="20%">{{home.templateId}}</td> -->
+                   
+                        <td data-title="Image">
+                            <img ng-src="{{(templateList | filter : {templateId:home.templateId})[0].templateURL}}" alt="{{(templateList | filter : {templateId:home.templateId})[0].templateName}}" style="max-height: 200px;max-width: 200px;"/>
+                        </td>
+                        
+                        <!-- <td  data-title="Name" width="20%" ng-if="home.isMain == true">{{'Yes' | translate}}</td>
+                        <td  data-title="Name" width="20%" ng-if="home.isMain == false || home.isMain == null">{{'No' | translate}}</td> -->
+                        <td ng-class="{'red-text': user.isActive == false }" width="15%">
+                            <i class="cursorPointer" ng-click="homeCtrl.UpdateHome(home)">{{'Edit' | translate}} </i>
+                            <!-- <i class="cursorPointer" ng-click="homeCtrl.DeleteTemplate(home.homeId)">{{'deleteBtn' | translate}} </i> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div style="text-align:center;" paging page="1" page-size="10" total="homeList.totalCount" paging-action="homeCtrl.changePage(page)"
+         flex="nogrow" show-prev-next="true" show-first-last="true" hide-if-empty="true" disabled-class="hide">
+    </div>
+</div>

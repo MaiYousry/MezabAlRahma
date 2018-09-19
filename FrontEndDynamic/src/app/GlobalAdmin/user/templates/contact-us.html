@@ -1,0 +1,60 @@
+
+	<!--HEADER SECTION-->
+	<section>
+	
+		<!--TOP SECTION-->
+		<div class="inn-banner" style="background: url(http://mezab-al-rahma.azurewebsites.net/api/Templates/{{home.templateId}}/Image) no-repeat">		
+			<div class="container">
+				<div class="row">
+					<h4>{{'ContactUs' | translate}}</h4>
+					
+					<ul>
+						<li><a href="#">{{'Home'| translate}}</a>
+						</li>
+						<li><a href="#">{{'ContactUs' | translate}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="inn-body-section">
+			<div class="container">
+				<div class="row">
+					<div class="page-head">
+						<h2>{{'ContactUs' | translate}}</h2>
+						<div class="head-title">
+							<div class="hl-1"></div>
+							<div class="hl-2"></div>
+							<div class="hl-3"></div>
+						</div>
+						<!-- <p>Quisque at volutpat nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p> -->
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6 col-sm-9 col-xs-12 new-con rtlCLass">
+						<div ng-show ="contactUs.showEmail == true">
+							<h2><span>{{'Email' | translate}}</span>{{contactUs.email}}</h2>
+						</div>
+						<div ng-show ="contactUs.showOwnerEmail == true">
+							<h2><span>{{'Email' | translate}}</span>{{contactUs.ownerEmail}}</h2>
+						</div>
+						<div ng-show ="contactUs.showWhatsApp == true">
+							<h2><span>{{'WhatsApp' | translate}}</span>{{contactUs.whatsAppNumber}}</h2>
+						</div>
+						<div ng-show ="contactUs.showMobile == true">
+							<h2><span>{{'Mobile' | translate}}</span>{{contactUs.companyNumber}}</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="contact-map">
+				<iframe ng-src="{{hotelLocationUrl}}" allowfullscreen></iframe>
+				<!-- <iframe ng-src="{{contactUs.location}}" allowfullscreen></iframe>				 -->
+			</div>
+		</div>
+		<!--TOP SECTION-->
+
+	</section>

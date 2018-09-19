@@ -1,0 +1,10 @@
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\bin\Release\MezabElRahma.Resources.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\bin\Release\MezabElRahma.Resources.pdb
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\bin\Release\ar-EG\MezabElRahma.Resources.resources.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Release\MezabElRahma.Resources.csprojResolveAssemblyReference.cache
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Release\MezabElRahma.Resources.Resource.resources
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Release\MezabElRahma.Resources.Resource.ar-EG.resources
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Release\MezabElRahma.Resources.csproj.GenerateResource.Cache
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Release\ar-EG\MezabElRahma.Resources.resources.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Release\MezabElRahma.Resources.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Resources\obj\Release\MezabElRahma.Resources.pdb

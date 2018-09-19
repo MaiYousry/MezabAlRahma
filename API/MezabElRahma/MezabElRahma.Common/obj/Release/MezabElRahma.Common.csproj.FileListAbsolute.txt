@@ -1,0 +1,4 @@
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Common\bin\Release\MezabElRahma.Common.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Common\bin\Release\MezabElRahma.Common.pdb
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Common\obj\Release\MezabElRahma.Common.dll
+E:\Projects\MezabElRahma_GMG\API\MezabElRahma\MezabElRahma.Common\obj\Release\MezabElRahma.Common.pdb

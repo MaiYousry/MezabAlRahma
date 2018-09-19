@@ -1,0 +1,47 @@
+
+<div>
+        <div style="margin-bottom:10px">
+            <button ng-click="ourTeamCtrl.AddOurTeam()" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button">{{'AddBtn' | translate}}</button>
+        </div>
+    
+        <div ng-if="ourTeamList.results.length == 0">
+            <span>{{'NoOurTeamAvailable' | translate}}</span>
+        </div>
+    
+        <div class="pmd-card pmd-z-depth pmd-card-custom-view" ng-if=" ourTeamList.results.length >0">
+                <!-- {{ourTeamList.results}} -->
+            <div class="table-responsive">
+                <table class="table pmd-table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{'Title' | translate}}</th>
+                            <th>{{'Description' | translate}}</th>
+                            <th>{{'Template' | translate}}</th>
+                            <!-- <th>{{'IsMain' | translate}}</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ourTeam in ourTeamList.results">
+                            <td  data-title="Name" width="20%">{{ourTeam.titleDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                            <td  data-title="Name" width="20%">{{ourTeam.descriptionDictionary[selectedLanguage] | limitTo: 10 }}</td>
+                               <td data-title="Image">
+                                   <img ng-src="{{(templateList | filter : {templateId:ourTeam.templateId})[0].templateURL}}" alt="{{(templateList | filter : {templateId:ourTeam.templateId})[0].templateName}}" style="max-height: 200px;max-width: 200px;"/>
+                                </td>
+                            
+                            <!-- <td  data-title="Name" width="20%" ng-if="ourTeam.isMain == true">{{'Yes' | translate}}</td>
+                            <td  data-title="Name" width="20%" ng-if="ourTeam.isMain == false || ourTeam.isMain == null">{{'No' | translate}}</td> -->
+                            <td ng-class="{'red-text': user.isActive == false }" width="15%">
+                                <i class="cursorPointer" ng-click="ourTeamCtrl.UpdateOurTeam(ourTeam)">{{'Edit' | translate}} </i>
+                                <i class="cursorPointer" ng-click="ourTeamCtrl.DeleteTemplate(ourTeam.ourTeamId)">{{'deleteBtn' | translate}} </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+        <div style="text-align:center;" paging page="1" page-size="10" total="ourTeamList.totalCount" paging-action="ourTeamCtrl.changePage(page)"
+             flex="nogrow" show-prev-next="true" show-first-last="true" hide-if-empty="true" disabled-class="hide">
+        </div>
+    </div>
+    
